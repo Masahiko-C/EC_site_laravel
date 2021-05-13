@@ -17,9 +17,18 @@ class CreateCartsTable extends Migration
             $table->increments('cart_id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('item_id');
-            $table->unsignedInteger('amont');
-
+            $table->unsignedInteger('amount');
             $table->timestamps();
+
+            $table->unique(['user_id', 'item_id']);
+            $table->foreign('user_id')
+                    ->references('user_id')
+                    ->on('users')
+                    ->onDelete('cascade');
+            $table->foreign('item_id')
+                    ->references('item_id')
+                    ->on('items')
+                    ->onDelete('cascade');
         });
     }
 
