@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//認証用routes
+Auth::routes();
+
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');
