@@ -25,7 +25,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected function redirectTo
+    protected function redirectTo()
     {
         return route('dashboard');
     }
