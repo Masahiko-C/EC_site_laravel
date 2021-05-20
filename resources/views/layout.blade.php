@@ -10,6 +10,7 @@
   @include('navbar')
 
   <div class="container py-4">
+    @include('flash::message')
     @yield('content')
   </div>
 

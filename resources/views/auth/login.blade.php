@@ -61,6 +61,10 @@
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             </div>
+                            @php
+    $i = Auth::user();
+    Debugbar::info($i);
+  @endphp
                         </div>
                     </form>
                 </div>

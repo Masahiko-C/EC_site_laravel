@@ -15,12 +15,8 @@
       {!! Form::file('image') !!}
     </div>
     <div class="form-group">
-      {!! Form::label('published_at', 'Publish On:') !!}
-      {!! Form::input('date', 'published_at', date('Y-m-d'), ['class' => 'form-control']) !!}
-    </div>
-    <div class="form-group">
       {!! Form::label('status', 'ステータス:') !!}
-      {!! Form::select('status', ['公開', '非公開']) !!}
+      {!! Form::select('status', ['1' => '公開', '0' => '非公開']) !!}
     </div>
     <div class="form-group">
       {!! Form::submit($submitButtun, ['class' => 'btn btn-primary form-control']) !!}
