@@ -13,7 +13,9 @@
 
 Route::get('/', 'ItemsController@index')->name('home');
 
+Route::resource('items', 'ItemsController');
+
 //認証用routes
 Auth::routes();
 
-Route::get('/dashboard', 'ItemsController@index')->name('dashboard');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

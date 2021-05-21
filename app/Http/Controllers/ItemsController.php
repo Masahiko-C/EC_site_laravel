@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Item;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\ItemRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ItemsController extends Controller
 {
@@ -13,7 +17,8 @@ class ItemsController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $items = Item::latest('created_at')->get();
+        return view('admin', compact('items'));
     }
 
     /**
@@ -23,7 +28,7 @@ class ItemsController extends Controller
      */
     public function create()
     {
-        return view('items.create');
+        return view('items.admin');
     }
 
     /**
@@ -32,26 +37,12 @@ class ItemsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ItemRequest $request)
     {
-        $request->validate([
-            'name' => ['required | string | max:255'],
-            'price' => ['required | numeric | intger | min:0'],
-            'stock' => ['required | numeric | intger | min:0'],
-            'image' => ['file | mimes:jpeg,png,jpg | max:2048'],
-            'status' =>['required'],
-        ]);
-        if($file = $request->image){
-            $fileName = time().'.'.$file->getClientOriginalExtension();
-            $target_path = public_path('/uploads/');
-            $file->move($target_path,$fileName);
-        } else {
-            $name = '';
-        }
-        $request->user()->create([
-            'name'=>$request->input('name'),
-            'image' => $fileName,
-        ]);
+        Item::create($request->validated());
+
+        return redirect()->route('items.index')
+                ->with('message', '商品を追加しました。');
     }
 
     /**
@@ -97,5 +88,11 @@ class ItemsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth')
+        ->except(['index', 'show', ]);
     }
 }
