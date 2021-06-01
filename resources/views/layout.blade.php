@@ -11,6 +11,7 @@
 
   <div class="container py-4">
     @include('flash::message')
+    @include('errors.form_errors')
     @yield('content')
   </div>
 

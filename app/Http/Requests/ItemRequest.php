@@ -27,7 +27,7 @@ class ItemRequest extends FormRequest
             'name' => 'required|string|max:255',
             'price' => 'required|numeric|integer|min:0',
             'stock' => 'required|numeric|integer|min:0',
-            'image' => 'file|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'file|mimes:jpeg,png,jpg|max:2048',
             'status' =>'required',
         ];
     }

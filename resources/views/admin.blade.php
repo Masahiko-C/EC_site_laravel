@@ -21,7 +21,7 @@
       <tbody>
         @foreach($items as $item)
           <!-- <tr> -->
-            <td></td>
+            <td><img src="../../uploads/{{ $item->image }}"width="200px" height="200px"></td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->price }}円</td>
             <!-- <td>在庫数変更の処理</td> -->
