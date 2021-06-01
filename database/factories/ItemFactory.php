@@ -8,7 +8,7 @@ $factory->define(App\Item::class, function (Faker $faker) {
         'name' => $faker->name(),
                 'stock' => $faker->randomDigitNotNull(),
                 'price' => $faker->randomDigitNotNull(),
-                'image' => $faker->MD5(),
+                'image' => "1622550380.jpg",
                 'status' => $faker->numberBetween(1,2),
                 'created_at' => Carbon::today(),
     ];

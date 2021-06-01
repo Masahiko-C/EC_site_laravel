@@ -39,7 +39,29 @@ class ItemsController extends Controller
      */
     public function store(ItemRequest $request)
     {
-        Item::create($request->validated());
+        $request->validated([
+            'name' => ['required|string|max:255'],
+            'price' => ['required|numeric|integer|min:0'],
+            'stock' => ['required|numeric|integer|min:0'],
+            'image' => ['file|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:2048'],
+            'status' => ['required'],
+        ]);
+        
+        if($file = $request->image){
+            $filename = time().'.'.$file->getClientOriginalExtension();
+            $target_path = public_path('/uploads/');
+            $file->move($target_path,$filename);
+        }else{
+            $filename = "";
+        }
+
+        $item = new Item;
+        $item->name = $request->name;
+        $item->price = $request->price;
+        $item->stock = $request->stock;
+        $item->status = $request->status;
+        $item->image = $filename;
+        $item->save();
 
         return redirect()->route('items.index')
                 ->with('message', '商品を追加しました。');
