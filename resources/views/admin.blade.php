@@ -20,11 +20,15 @@
       </thead>
       <tbody>
         @foreach($items as $item)
-          <!-- <tr> -->
+          <tr>
             <td><img src="../../uploads/{{ $item->image }}"width="200px" height="200px"></td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->price }}円</td>
-            <!-- <td>在庫数変更の処理</td> -->
+            <td>
+            {!! Form::model($item, ['route' => ['items.update', $item->id]]) !!}
+              @include('Items.form_update', ['submitButtun' => '更新する'])
+            {!! Form::close() !!}
+            </td>
             <!-- <td>ステータス変更の処理</td> -->
             <!-- <td>削除の処理</td> -->
 

@@ -16,7 +16,7 @@ class ItemsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         $items = Item::latest('created_at')->get();
         return view('admin', compact('items'));
     }
@@ -96,9 +96,12 @@ class ItemsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $item)
     {
-        //
+        $item->update($request->validated());
+        
+        return redirect()->route('items.index')
+                ->with('message', '商品情報を更新しました。');
     }
 
     /**
