@@ -25,7 +25,8 @@
             <td>{{ $item->name }}</td>
             <td>{{ $item->price }}円</td>
             <td>
-            {!! Form::model($item, ['route' => ['items.update', $item->id]]) !!}
+            {!! Form::model($item, ['method' => 'PATCH', 'route' => ['items.update', $item->item_id]]) !!}
+            {{ Form::hidden('item_id', $item->item_id) }}
               @include('Items.form_update', ['submitButtun' => '更新する'])
             {!! Form::close() !!}
             </td>
