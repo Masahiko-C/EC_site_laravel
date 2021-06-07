@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Item;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ItemRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\ItemRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class ItemsController extends Controller
 {
@@ -39,13 +40,7 @@ class ItemsController extends Controller
      */
     public function store(ItemRequest $request)
     {
-        $request->validated([
-            'name' => ['required|string|max:255'],
-            'price' => ['required|numeric|integer|min:0'],
-            'stock' => ['required|numeric|integer|min:0'],
-            'image' => ['file|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:2048'],
-            'status' => ['required'],
-        ]);
+        $request->validated();
         
         if($file = $request->image){
             $filename = time().'.'.$file->getClientOriginalExtension();
@@ -68,17 +63,6 @@ class ItemsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -96,11 +80,15 @@ class ItemsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $item)
+    public function update(Request $request)
     {
-        $item->update($request->validated());
-        
-        return redirect()->route('items.index')
+        $rule = [
+            'stock' => 'required|numeric|integer|min:0',
+        ];
+        $request->validate($rule);
+        Item::where('item_id', $request->item_id)
+            ->update(['stock' => $request->stock]);
+        return redirect()->route('home')
                 ->with('message', '商品情報を更新しました。');
     }
 
@@ -118,6 +106,6 @@ class ItemsController extends Controller
     public function __construct()
     {
         $this->middleware('auth')
-        ->except(['index', 'show', ]);
+        ->except(['index']);
     }
 }

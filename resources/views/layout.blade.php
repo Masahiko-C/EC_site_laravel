@@ -10,7 +10,9 @@
   @include('navbar')
 
   <div class="container py-4">
-    @include('flash::message')
+    @if (session('message'))
+    <div class="alert alert-success">{{ session('message') }}</div>
+    @endif
     @include('errors.form_errors')
     @yield('content')
   </div>
