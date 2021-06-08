@@ -80,14 +80,13 @@ class ItemsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         $rule = [
             'stock' => 'required|numeric|integer|min:0',
         ];
-        $request->validate($rule);
-        Item::where('item_id', $request->item_id)
-            ->update(['stock' => $request->stock]);
+        $item = Item::findOrFail($id);
+        $item->update($request->validate($rule));
         return redirect()->route('home')
                 ->with('message', '商品情報を更新しました。');
     }
@@ -100,7 +99,10 @@ class ItemsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Item::findOrFail($id)->delete();
+
+        return redirect()->route('home')
+                ->with('message', '商品を削除しました。');
     }
 
     public function __construct()
