@@ -29,7 +29,23 @@
               @include('Items.form_update', ['submitButtun' => '更新する'])
             {!! Form::close() !!}
             </td>
-            <!-- <td>ステータス変更の処理</td> -->
+            <td>
+            @if ($item->status == '1')
+              {!! Form::open(['method' => 'PATCH', 'route' => ['items.update', $item->item_id]])!!}
+                <div class="form-group">
+                  {!! Form::hidden('status', '2')!!}
+                  {!! Form::submit('公開 => 非公開', ['class' => 'btn btn-primary form-control']) !!}
+                </div>
+              {!! Form::close() !!}
+            @else
+              {!! Form::open(['method' => 'PATCH', 'route' => ['items.update', $item->item_id]])!!}
+                <div class="form-group">
+                  {!! Form::hidden('status', '1')!!}
+                  {!! Form::submit('非公開 => 公開', ['class' => 'btn btn-primary form-control']) !!}
+                </div>
+              {!! Form::close() !!}
+            @endif
+            </td>
             <td>
             {!! Form::open(['method' => 'DELETE', 'route' => ['items.destroy', $item->item_id], 'class' => 'd-inline']) !!}
               {!! Form::submit('削除', ['class' => 'btn btn-danger', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
