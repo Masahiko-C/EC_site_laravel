@@ -26,12 +26,15 @@
             <td>{{ $item->price }}円</td>
             <td>
             {!! Form::model($item, ['method' => 'PATCH', 'route' => ['items.update', $item->item_id]]) !!}
-            {{ Form::hidden('item_id', $item->item_id) }}
               @include('Items.form_update', ['submitButtun' => '更新する'])
             {!! Form::close() !!}
             </td>
             <!-- <td>ステータス変更の処理</td> -->
-            <!-- <td>削除の処理</td> -->
+            <td>
+            {!! Form::open(['method' => 'DELETE', 'route' => ['items.destroy', $item->item_id], 'class' => 'd-inline']) !!}
+              {!! Form::submit('削除', ['class' => 'btn btn-danger', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
+            {!! Form::close() !!}
+            </td>
 
           </tr>
         @endforeach
@@ -40,5 +43,7 @@
   @else
     <p>商品はありません</p>
   @endif
-
+  <script>
+    $('.delete').on('click', () => confirm('本当に削除しますか？'))
+  </script>
 @endsection
