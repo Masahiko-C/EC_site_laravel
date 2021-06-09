@@ -16,11 +16,12 @@
           <th>価格</th>
           <th>在庫数</th>
           <th>操作</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         @foreach($items as $item)
-          <tr>
+          <tr @if($item->status == 2) class="close_item" @endif>
             <td><img src="../../uploads/{{ $item->image }}"width="200px" height="200px"></td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->price }}円</td>
