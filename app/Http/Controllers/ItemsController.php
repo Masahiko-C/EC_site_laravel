@@ -82,11 +82,17 @@ class ItemsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rule = [
-            'stock' => 'required|numeric|integer|min:0',
-        ];
-        $item = Item::findOrFail($id);
-        $item->update($request->validate($rule));
+        if(isset($request->stock)){
+            $rule = [
+                'stock' => 'required|numeric|integer|min:0',
+            ];
+            Item::findOrFail($id)->update($request->validate($rule));
+        } else {
+            $rule = [
+                'status' =>'required',
+            ];
+            Item::findOrFail($id)->update($request->validate($rule));
+        }
         return redirect()->route('home')
                 ->with('message', '商品情報を更新しました。');
     }
