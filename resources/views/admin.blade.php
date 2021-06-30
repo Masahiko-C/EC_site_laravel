@@ -3,8 +3,10 @@
 @section('title', '商品管理')
 
 @section('content')
-  {!! Form::open(['route' => 'items.store', 'files' => 'true']) !!}
-    @include('Items.form', ['submitButtun' => '商品を追加する'])
+<h1>商品管理</h1>
+
+  {!! Form::open(['route' => 'admin.store', 'files' => 'true']) !!}
+    @include('Admins.form_create', ['submitButtun' => '商品を追加する'])
   {!! Form::close() !!}
 
   @if(count($items) > 0)
@@ -26,20 +28,20 @@
             <td>{{ $item->name }}</td>
             <td>{{ $item->price }}円</td>
             <td>
-            {!! Form::model($item, ['method' => 'PATCH', 'route' => ['items.update', $item->item_id]]) !!}
-              @include('Items.form_update', ['submitButtun' => '更新する'])
+            {!! Form::model($item, ['method' => 'PATCH', 'route' => ['admin.update', $item->item_id]]) !!}
+              @include('Admins.form_update', ['submitButtun' => '更新する'])
             {!! Form::close() !!}
             </td>
             <td>
             @if ($item->status == '1')
-              {!! Form::open(['method' => 'PATCH', 'route' => ['items.update', $item->item_id]])!!}
+              {!! Form::open(['method' => 'PATCH', 'route' => ['admin.update', $item->item_id]])!!}
                 <div class="form-group">
                   {!! Form::hidden('status', '2')!!}
                   {!! Form::submit('公開 => 非公開', ['class' => 'btn btn-primary form-control']) !!}
                 </div>
               {!! Form::close() !!}
             @else
-              {!! Form::open(['method' => 'PATCH', 'route' => ['items.update', $item->item_id]])!!}
+              {!! Form::open(['method' => 'PATCH', 'route' => ['admin.update', $item->item_id]])!!}
                 <div class="form-group">
                   {!! Form::hidden('status', '1')!!}
                   {!! Form::submit('非公開 => 公開', ['class' => 'btn btn-primary form-control']) !!}
@@ -48,7 +50,7 @@
             @endif
             </td>
             <td>
-            {!! Form::open(['method' => 'DELETE', 'route' => ['items.destroy', $item->item_id], 'class' => 'd-inline']) !!}
+            {!! Form::open(['method' => 'DELETE', 'route' => ['admin.destroy', $item->item_id], 'class' => 'd-inline']) !!}
               {!! Form::submit('削除', ['class' => 'btn btn-danger', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
             {!! Form::close() !!}
             </td>

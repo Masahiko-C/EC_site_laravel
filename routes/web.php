@@ -11,9 +11,12 @@
 |
 */
 
+use Doctrine\DBAL\Schema\Index;
+
 Route::get('/', 'ItemsController@index')->name('home');
 
 Route::resource('items', 'ItemsController');
+Route::resource('admin', 'AdminController');
 
 //認証用routes
 Auth::routes();

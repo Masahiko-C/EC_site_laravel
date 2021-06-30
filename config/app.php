@@ -124,6 +124,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,

@@ -19,5 +19,5 @@
       {!! Form::select('status', ['1' => '公開', '0' => '非公開']) !!}
     </div>
     <div class="form-group">
-      {!! Form::submit($submitButtun, ['class' => 'btn btn-primary form-control']) !!}
+      {!! Form::submit($submitButtun, ['class' => 'btn btn-primary']) !!}
     </div>
