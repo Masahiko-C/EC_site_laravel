@@ -1,20 +1,17 @@
-[2021-06-09 10:58:43] local.DEBUG: SQL {"time":"6.75 ms","sql":"select * from \"items\" order by \"created_at\" desc"} 
-[2021-06-09 10:59:01] local.DEBUG: SQL {"time":"9.31 ms","sql":"select * from \"users\" where \"email\" = kirakiramasahiko@gmail.com limit 1"} 
-[2021-06-09 10:59:01] local.DEBUG: SQL {"time":"2.24 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 10:59:01] local.ERROR: Method App\Http\Controllers\ItemsController::show does not exist. {"userId":1,"email":"kirakiramasahiko@gmail.com","exception":"[object] (BadMethodCallException(code: 0): Method App\\Http\\Controllers\\ItemsController::show does not exist. at /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:68)
+[2021-06-30 09:19:34] local.ERROR: syntax error, unexpected '}', expecting ',' or ';' {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected '}', expecting ',' or ';' at /Users/narusemasahiko/ECsite_laravel/app/Item.php:17)
 [stacktrace]
-#0 [internal function]: Illuminate\\Routing\\Controller->__call('show', Array)
-#1 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
-#2 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction('show', Array)
-#3 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Route.php(212): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\ItemsController), 'show')
-#4 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Route.php(169): Illuminate\\Routing\\Route->runController()
-#5 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(665): Illuminate\\Routing\\Route->run()
-#6 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
-#7 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
-#8 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
-#9 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
-#10 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(43): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
-#11 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#0 /Users/narusemasahiko/ECsite_laravel/vendor/composer/ClassLoader.php(346): Composer\\Autoload\\includeFile('/Users/narusema...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Item')
+#2 /Users/narusemasahiko/ECsite_laravel/app/Http/Controllers/ItemsController.php(17): spl_autoload_call('App\\\\Item')
+#3 [internal function]: App\\Http\\Controllers\\ItemsController->index()
+#4 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#5 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction('index', Array)
+#6 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Route.php(212): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\ItemsController), 'index')
+#7 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Route.php(169): Illuminate\\Routing\\Route->runController()
+#8 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(665): Illuminate\\Routing\\Route->run()
+#9 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#10 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#11 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
 #12 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
 #13 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(68): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
 #14 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
@@ -63,45 +60,45 @@
 #57 /Users/narusemasahiko/ECsite_laravel/server.php(21): require_once('/Users/narusema...')
 #58 {main}
 "} 
-[2021-06-09 11:00:04] local.DEBUG: SQL {"time":"6.37 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:00:06] local.DEBUG: SQL {"time":"2.22 ms","sql":"select * from \"items\" order by \"created_at\" desc"} 
-[2021-06-09 11:00:06] local.DEBUG: SQL {"time":"0.16 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:00:10] local.DEBUG: SQL {"time":"1.89 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:00:10] local.DEBUG: SQL {"time":"0.08 ms","sql":"select * from \"items\" where \"items\".\"item_id\" = 21 limit 1"} 
-[2021-06-09 11:00:10] local.DEBUG: SQL {"time":"10.86 ms","sql":"delete from \"items\" where \"item_id\" = 21"} 
-[2021-06-09 11:00:10] local.DEBUG: SQL {"time":"1.51 ms","sql":"select * from \"items\" order by \"created_at\" desc"} 
-[2021-06-09 11:00:10] local.DEBUG: SQL {"time":"0.15 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:00:23] local.DEBUG: SQL {"time":"2.94 ms","sql":"select * from \"items\" order by \"created_at\" desc"} 
-[2021-06-09 11:00:23] local.DEBUG: SQL {"time":"0.16 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:01:45] local.DEBUG: SQL {"time":"5.28 ms","sql":"select * from \"items\" order by \"created_at\" desc"} 
-[2021-06-09 11:01:45] local.DEBUG: SQL {"time":"0.78 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:02:08] local.DEBUG: SQL {"time":"1.51 ms","sql":"select * from \"items\" order by \"created_at\" desc"} 
-[2021-06-09 11:02:08] local.DEBUG: SQL {"time":"0.20 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:02:10] local.DEBUG: SQL {"time":"1.73 ms","sql":"select * from \"items\" order by \"created_at\" desc"} 
-[2021-06-09 11:02:10] local.DEBUG: SQL {"time":"0.17 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:02:10] local.DEBUG: SQL {"time":"1.40 ms","sql":"select * from \"items\" order by \"created_at\" desc"} 
-[2021-06-09 11:02:11] local.DEBUG: SQL {"time":"0.15 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:02:11] local.DEBUG: SQL {"time":"1.76 ms","sql":"select * from \"items\" order by \"created_at\" desc"} 
-[2021-06-09 11:02:11] local.DEBUG: SQL {"time":"0.15 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:03:04] local.DEBUG: SQL {"time":"6.76 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:03:04] local.DEBUG: SQL {"time":"0.34 ms","sql":"select * from \"items\" where \"items\".\"item_id\" = 11 limit 1"} 
-[2021-06-09 11:03:04] local.DEBUG: SQL {"time":"1.98 ms","sql":"update \"items\" set \"status\" = 2, \"updated_at\" = 2021-06-09 11:03:04 where \"item_id\" = 11"} 
-[2021-06-09 11:03:04] local.DEBUG: SQL {"time":"1.88 ms","sql":"select * from \"items\" order by \"created_at\" desc"} 
-[2021-06-09 11:03:04] local.DEBUG: SQL {"time":"0.18 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:03:23] local.DEBUG: SQL {"time":"4.97 ms","sql":"select * from \"items\" order by \"created_at\" desc"} 
-[2021-06-09 11:03:23] local.DEBUG: SQL {"time":"0.65 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:03:38] local.DEBUG: SQL {"time":"1.49 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:03:38] local.DEBUG: SQL {"time":"0.08 ms","sql":"select * from \"items\" where \"items\".\"item_id\" = 11 limit 1"} 
-[2021-06-09 11:03:38] local.DEBUG: SQL {"time":"1.65 ms","sql":"update \"items\" set \"stock\" = 1, \"updated_at\" = 2021-06-09 11:03:38 where \"item_id\" = 11"} 
-[2021-06-09 11:03:38] local.DEBUG: SQL {"time":"1.61 ms","sql":"select * from \"items\" order by \"created_at\" desc"} 
-[2021-06-09 11:03:38] local.DEBUG: SQL {"time":"0.15 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:03:41] local.DEBUG: SQL {"time":"1.47 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:03:41] local.DEBUG: SQL {"time":"3.05 ms","sql":"select * from \"items\" where \"items\".\"item_id\" = 11 limit 1"} 
-[2021-06-09 11:03:41] local.DEBUG: SQL {"time":"1.07 ms","sql":"update \"items\" set \"status\" = 1, \"updated_at\" = 2021-06-09 11:03:41 where \"item_id\" = 11"} 
-[2021-06-09 11:03:41] local.DEBUG: SQL {"time":"1.49 ms","sql":"select * from \"items\" order by \"created_at\" desc"} 
-[2021-06-09 11:03:41] local.DEBUG: SQL {"time":"1.37 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:03:44] local.DEBUG: SQL {"time":"1.60 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
-[2021-06-09 11:03:44] local.DEBUG: SQL {"time":"0.09 ms","sql":"select * from \"items\" where \"items\".\"item_id\" = 11 limit 1"} 
-[2021-06-09 11:03:44] local.DEBUG: SQL {"time":"0.91 ms","sql":"delete from \"items\" where \"item_id\" = 11"} 
-[2021-06-09 11:03:45] local.DEBUG: SQL {"time":"2.70 ms","sql":"select * from \"items\" order by \"created_at\" desc"} 
-[2021-06-09 11:03:45] local.DEBUG: SQL {"time":"0.15 ms","sql":"select * from \"users\" where \"id\" = 1 limit 1"} 
+[2021-06-30 09:20:13] local.DEBUG: SQL {"time":"48.73 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:20:13] local.DEBUG: SQL {"time":"1.32 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 0"} 
+[2021-06-30 09:20:15] local.DEBUG: SQL {"time":"3.42 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:20:15] local.DEBUG: SQL {"time":"0.60 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 0"} 
+[2021-06-30 09:20:15] local.DEBUG: SQL {"time":"0.54 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:20:15] local.DEBUG: SQL {"time":"0.48 ms","sql":"select * from `items` where `status` = 1 order by `price` desc limit 8 offset 0"} 
+[2021-06-30 09:20:20] local.DEBUG: SQL {"time":"4.87 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:20:20] local.DEBUG: SQL {"time":"0.31 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 8"} 
+[2021-06-30 09:20:20] local.DEBUG: SQL {"time":"0.25 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:20:20] local.DEBUG: SQL {"time":"0.26 ms","sql":"select * from `items` where `status` = 1 order by `price` desc limit 8 offset 8"} 
+[2021-06-30 09:20:29] local.DEBUG: SQL {"time":"4.00 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:20:29] local.DEBUG: SQL {"time":"1.00 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 0"} 
+[2021-06-30 09:20:29] local.DEBUG: SQL {"time":"0.27 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:20:29] local.DEBUG: SQL {"time":"0.25 ms","sql":"select * from `items` where `status` = 1 order by `price` asc limit 8 offset 0"} 
+[2021-06-30 09:20:36] local.DEBUG: SQL {"time":"4.70 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:20:36] local.DEBUG: SQL {"time":"0.29 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 8"} 
+[2021-06-30 09:20:36] local.DEBUG: SQL {"time":"0.20 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:20:36] local.DEBUG: SQL {"time":"0.21 ms","sql":"select * from `items` where `status` = 1 order by `price` asc limit 8 offset 8"} 
+[2021-06-30 09:20:43] local.DEBUG: SQL {"time":"4.10 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:20:43] local.DEBUG: SQL {"time":"0.31 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 0"} 
+[2021-06-30 09:20:43] local.DEBUG: SQL {"time":"0.27 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:20:43] local.DEBUG: SQL {"time":"0.39 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 0"} 
+[2021-06-30 09:21:29] local.DEBUG: SQL {"time":"6.31 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:21:29] local.DEBUG: SQL {"time":"0.35 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 8"} 
+[2021-06-30 09:21:29] local.DEBUG: SQL {"time":"0.23 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:21:29] local.DEBUG: SQL {"time":"0.19 ms","sql":"select * from `items` where `status` = 1 order by `price` asc limit 8 offset 8"} 
+[2021-06-30 09:21:32] local.DEBUG: SQL {"time":"2.97 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:21:32] local.DEBUG: SQL {"time":"0.31 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 0"} 
+[2021-06-30 09:21:32] local.DEBUG: SQL {"time":"0.22 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:21:32] local.DEBUG: SQL {"time":"0.34 ms","sql":"select * from `items` where `status` = 1 order by `price` desc limit 8 offset 0"} 
+[2021-06-30 09:22:22] local.DEBUG: SQL {"time":"21.01 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:22:22] local.DEBUG: SQL {"time":"0.43 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 8"} 
+[2021-06-30 09:22:22] local.DEBUG: SQL {"time":"0.22 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:22:22] local.DEBUG: SQL {"time":"0.19 ms","sql":"select * from `items` where `status` = 1 order by `price` asc limit 8 offset 8"} 
+[2021-06-30 09:22:25] local.DEBUG: SQL {"time":"6.33 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:22:25] local.DEBUG: SQL {"time":"0.31 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 0"} 
+[2021-06-30 09:22:25] local.DEBUG: SQL {"time":"0.21 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:22:25] local.DEBUG: SQL {"time":"0.22 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 0"} 
+[2021-06-30 09:22:27] local.DEBUG: SQL {"time":"3.04 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:22:27] local.DEBUG: SQL {"time":"0.31 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 0"} 
+[2021-06-30 09:22:27] local.DEBUG: SQL {"time":"0.20 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-06-30 09:22:27] local.DEBUG: SQL {"time":"0.29 ms","sql":"select * from `items` where `status` = 1 order by `price` desc limit 8 offset 0"} 
