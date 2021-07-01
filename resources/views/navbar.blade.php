@@ -10,16 +10,20 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
+      
+      @auth
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
         </li>
 
+      @if(Auth::user()->type === 1)
         <li class="nav-item active">
           <a class="nav-link" href="{{ route('admin.index') }}">管理<span class="sr-only">(current)</span></a>
-        </li>      
+        </li>  
+      @endif    
       </ul>
+      @endauth
 
       <ul class="navbar-nav">
     @guest
