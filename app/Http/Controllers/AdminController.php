@@ -111,8 +111,8 @@ class AdminController extends Controller
                 ->with('message', '商品を削除しました。');
     }
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 }
