@@ -13,12 +13,16 @@
 
 use Doctrine\DBAL\Schema\Index;
 
+
+
 Route::get('/', 'ItemsController@index')->name('home');
 
 Route::resource('items', 'ItemsController');
-Route::resource('admin', 'AdminController');
 
-//認証用routes
-Auth::routes();
+Route::group(['middleware' => ['administrator']], function() {
+Route::resource('admin', 'AdminController');
+});
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+//認証用routes
+Auth::routes();

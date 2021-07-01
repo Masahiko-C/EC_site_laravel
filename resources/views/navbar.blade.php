@@ -20,8 +20,8 @@
       @if(Auth::user()->type === 1)
         <li class="nav-item active">
           <a class="nav-link" href="{{ route('admin.index') }}">管理<span class="sr-only">(current)</span></a>
-        </li>  
-      @endif    
+        </li>
+      @endif
       </ul>
       @endauth
 
@@ -35,7 +35,7 @@
           </li>
     @else
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+            <a class="nav-link" href="{{ route('admin.index') }}">Dashboard</a>
           </li>
 
         <li class="nav-item dropdown">
