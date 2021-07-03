@@ -1,3 +1,6 @@
 .close_item {
   background-color: #dddddd;
 }
+.item_image {
+  height: 150px;
+}
