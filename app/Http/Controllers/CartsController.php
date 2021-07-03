@@ -11,7 +11,7 @@ class CartsController extends Controller
     public function show(){
         $user_id = Auth::id();
         $carts = Cart::select()->where('user_id', $user_id)->join('items', 'items.item_id', '=', 'carts.item_id')->get();
-        return view('items.cart', compact('carts'));
+        return view('Items.cart', compact('carts'));
     }
 
     public function store(Request $request){
