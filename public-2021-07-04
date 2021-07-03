@@ -1,0 +1,19 @@
+[2021-07-04 00:44:18] local.DEBUG: SQL {"time":"28.53 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-07-04 00:44:18] local.DEBUG: SQL {"time":"0.63 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 0"} 
+[2021-07-04 00:44:18] local.DEBUG: SQL {"time":"0.43 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-04 00:44:20] local.DEBUG: SQL {"time":"6.22 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-04 00:44:20] local.DEBUG: SQL {"time":"5.35 ms","sql":"select * from `carts` inner join `items` on `items`.`item_id` = `carts`.`item_id` where `user_id` = 1"} 
+[2021-07-04 00:45:21] local.DEBUG: SQL {"time":"17.86 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-04 00:45:21] local.DEBUG: SQL {"time":"11.84 ms","sql":"update `users` set `remember_token` = tOOR50tiXw0bMnvvKG541jfqLLMSXjqjFmwUwoCkMQGArIDKua4oUv7UFqg7 where `id` = 1"} 
+[2021-07-04 00:45:21] local.DEBUG: SQL {"time":"4.12 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-07-04 00:45:21] local.DEBUG: SQL {"time":"0.86 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 0"} 
+[2021-07-04 00:45:42] local.DEBUG: SQL {"time":"5.02 ms","sql":"select count(*) as aggregate from `users` where `email` = aaa@gmail.com"} 
+[2021-07-04 00:45:43] local.DEBUG: SQL {"time":"4.43 ms","sql":"insert into `users` (`name`, `email`, `password`, `updated_at`, `created_at`) values (mama, aaa@gmail.com, y$x5UUsa6a2JrENS7oQ5gEiuWIwHZ9Ma/J/iWFD4jEYpQ19fUzrYLYi, 2021-07-04 00:45:43, 2021-07-04 00:45:43)"} 
+[2021-07-04 00:45:43] local.DEBUG: SQL {"time":"4.71 ms","sql":"select * from `users` where `id` = 3 limit 1"} 
+[2021-07-04 00:45:46] local.DEBUG: SQL {"time":"4.05 ms","sql":"select * from `users` where `id` = 3 limit 1"} 
+[2021-07-04 00:45:46] local.DEBUG: SQL {"time":"5.44 ms","sql":"select * from `carts` inner join `items` on `items`.`item_id` = `carts`.`item_id` where `user_id` = 3"} 
+[2021-07-04 00:45:48] local.DEBUG: SQL {"time":"4.67 ms","sql":"select count(*) as aggregate from `items` where `status` = 1"} 
+[2021-07-04 00:45:48] local.DEBUG: SQL {"time":"1.05 ms","sql":"select * from `items` where `status` = 1 limit 8 offset 0"} 
+[2021-07-04 00:45:48] local.DEBUG: SQL {"time":"0.40 ms","sql":"select * from `users` where `id` = 3 limit 1"} 
+[2021-07-04 00:45:49] local.DEBUG: SQL {"time":"3.66 ms","sql":"select * from `users` where `id` = 3 limit 1"} 
+[2021-07-04 00:45:49] local.DEBUG: SQL {"time":"0.38 ms","sql":"select * from `carts` inner join `items` on `items`.`item_id` = `carts`.`item_id` where `user_id` = 3"} 
