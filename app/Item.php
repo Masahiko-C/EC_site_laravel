@@ -10,8 +10,12 @@ class Item extends Model
 {
     use sortable;
 
-    protected $fillable = ['name', 'stock', 'price', 'image', 'status'];
+    protected $fillable = ['item_id', 'name', 'stock', 'price', 'image', 'status'];
     protected $primaryKey = 'item_id';
+    
+    public function cart(){
+        return $this->belongsTo('App\Cart');
+    }
 
     public $sortable = ['price'];
 }

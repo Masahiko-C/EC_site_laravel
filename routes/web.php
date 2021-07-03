@@ -18,6 +18,8 @@ use Doctrine\DBAL\Schema\Index;
 Route::get('/', 'ItemsController@index')->name('home');
 
 Route::resource('items', 'ItemsController');
+Route::get('/cart', 'CartsController@show')->name('cart');
+Route::post('/', 'CartsController@store')->name('carts.store');
 
 Route::group(['middleware' => ['administrator']], function() {
 Route::resource('admin', 'AdminController');
