@@ -49,11 +49,7 @@
               {!! Form::close() !!}
             @endif
             </td>
-            <td>
-            {!! Form::open(['method' => 'DELETE', 'route' => ['admin.destroy', $item->item_id], 'class' => 'd-inline']) !!}
-              {!! Form::submit('削除', ['class' => 'btn btn-danger', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
-            {!! Form::close() !!}
-            </td>
+            <td>{!! delete_form('admin.destroy', $item->item_id) !!}</td>
 
           </tr>
         @endforeach
