@@ -23,7 +23,7 @@
           <td>{{ $cart->price }}円</td>
           <td>{{ $cart->amount }}個</td>
           <td>{{ $cart->amount * $cart->price }}円</td>
-          <td></td>
+          <td>{!! delete_form('carts.destroy', $cart->cart_id) !!}</td>
         </tr>
         @endforeach
 

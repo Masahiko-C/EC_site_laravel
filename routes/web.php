@@ -20,6 +20,7 @@ Route::get('/', 'ItemsController@index')->name('home');
 Route::resource('items', 'ItemsController');
 Route::get('/cart', 'CartsController@show')->name('cart');
 Route::post('/', 'CartsController@store')->name('carts.store');
+Route::delete('/carts/{cart}', 'CartsController@destroy')->name('carts.destroy');
 
 Route::group(['middleware' => ['administrator']], function() {
 Route::resource('admin', 'AdminController');

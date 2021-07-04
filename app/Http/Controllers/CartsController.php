@@ -28,4 +28,10 @@ class CartsController extends Controller
         return redirect()->route('items.index')->with('message', '商品を追加しました。');
 
     }
+
+    public function destroy(Cart $cart){
+        $cart->delete();
+        return redirect()->route('cart')
+                ->with('message', '商品をカートから削除しました。');
+    }
 }
