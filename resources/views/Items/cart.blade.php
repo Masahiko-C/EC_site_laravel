@@ -21,7 +21,7 @@
           <td><img src="../../uploads/{{ $cart->image }}" class="item_image"></td>
           <td>{{ $cart->name }}</td>
           <td>{{ $cart->price }}円</td>
-          <td>{{ $cart->amount }}個</td>
+          <td>{!! update_form($cart, $cart->cart_id, 'carts.update', 'amount', '商品個数：') !!}</td>
           <td>{{ $cart->amount * $cart->price }}円</td>
           <td>{!! delete_form('carts.destroy', $cart->cart_id) !!}</td>
         </tr>
