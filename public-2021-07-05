@@ -1,0 +1,7 @@
+[2021-07-05 14:38:51] local.DEBUG: SQL {"time":"3.76 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:38:51] local.DEBUG: SQL {"time":"0.42 ms","sql":"select * from `items` order by `created_at` desc"} 
+[2021-07-05 14:38:55] local.DEBUG: SQL {"time":"2.76 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:38:55] local.DEBUG: SQL {"time":"0.36 ms","sql":"select * from `items` where `items`.`item_id` = 2 limit 1"} 
+[2021-07-05 14:38:55] local.DEBUG: SQL {"time":"2.80 ms","sql":"update `items` set `stock` = 3, `updated_at` = 2021-07-05 14:38:55 where `item_id` = 2"} 
+[2021-07-05 14:38:55] local.DEBUG: SQL {"time":"4.76 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:38:55] local.DEBUG: SQL {"time":"0.39 ms","sql":"select * from `items` order by `created_at` desc"} 
