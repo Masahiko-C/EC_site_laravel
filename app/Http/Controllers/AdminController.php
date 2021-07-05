@@ -83,13 +83,12 @@ class AdminController extends Controller
         if(isset($request->stock)){
             $rule = ['stock' => 'required|numeric|integer|min:0',];
             $item->update($request->validate($rule));
-            
         } else {
             $rule = ['status' =>'required',];
             $item->update($request->validate($rule));
         }
-        // return redirect()->route('admin.index')
-        //         ->with('message', '商品情報を更新しました。');
+        return redirect()->route('admin.index')
+                ->with('message', '商品情報を更新しました。');
     }
 
     /**

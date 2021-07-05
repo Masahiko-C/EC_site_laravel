@@ -392,3 +392,85 @@
 [2021-07-05 14:37:01] local.DEBUG: SQL {"time":"4.17 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
 [2021-07-05 14:37:40] local.DEBUG: SQL {"time":"3.08 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
 [2021-07-05 14:37:40] local.DEBUG: SQL {"time":"0.48 ms","sql":"select * from `items` where `items`.`item_id` = 2 limit 1"} 
+[2021-07-05 14:41:46] local.DEBUG: SQL {"time":"6.53 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:41:46] local.DEBUG: SQL {"time":"0.38 ms","sql":"select * from `items` order by `created_at` desc"} 
+[2021-07-05 14:42:24] local.DEBUG: SQL {"time":"5.10 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:42:24] local.DEBUG: SQL {"time":"0.39 ms","sql":"select * from `items` order by `created_at` desc"} 
+[2021-07-05 14:42:27] local.DEBUG: SQL {"time":"4.41 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:44:05] local.DEBUG: SQL {"time":"6.46 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:44:29] local.DEBUG: SQL {"time":"4.93 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:44:29] local.DEBUG: SQL {"time":"0.35 ms","sql":"select * from `items` order by `created_at` desc"} 
+[2021-07-05 14:44:30] local.DEBUG: SQL {"time":"2.31 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:44:30] local.DEBUG: SQL {"time":"3.98 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:44:30] local.DEBUG: SQL {"time":"0.52 ms","sql":"select * from `items` order by `created_at` desc"} 
+[2021-07-05 14:44:34] local.DEBUG: SQL {"time":"4.03 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:44:34] local.DEBUG: SQL {"time":"2.73 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:44:34] local.DEBUG: SQL {"time":"0.40 ms","sql":"select * from `items` order by `created_at` desc"} 
+[2021-07-05 14:45:05] local.DEBUG: SQL {"time":"10.71 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:45:05] local.DEBUG: SQL {"time":"3.89 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:45:05] local.DEBUG: SQL {"time":"0.45 ms","sql":"select * from `items` order by `created_at` desc"} 
+[2021-07-05 14:55:59] local.DEBUG: SQL {"time":"6.31 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:55:59] local.DEBUG: SQL {"time":"0.30 ms","sql":"select * from `items` order by `created_at` desc"} 
+[2021-07-05 14:56:03] local.DEBUG: SQL {"time":"2.81 ms","sql":"select * from `users` where `id` = 1 limit 1"} 
+[2021-07-05 14:56:03] local.ERROR: Call to a member function validate() on string {"userId":1,"email":"m.naruse941112@gmail.com","exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Call to a member function validate() on string at /Users/narusemasahiko/ECsite_laravel/app/Http/Controllers/AdminController.php:89)
+[stacktrace]
+#0 [internal function]: App\\Http\\Controllers\\AdminController->update('2', Object(App\\Item))
+#1 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#2 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction('update', Array)
+#3 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Route.php(212): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\AdminController), 'update')
+#4 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Route.php(169): Illuminate\\Routing\\Route->runController()
+#5 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(665): Illuminate\\Routing\\Route->run()
+#6 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#7 /Users/narusemasahiko/ECsite_laravel/app/Http/Middleware/VerifyAdminUser.php(30): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#8 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): App\\Http\\Middleware\\VerifyAdminUser->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#9 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#11 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#12 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#13 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(68): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#14 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#15 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#16 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#17 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#20 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#23 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#26 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(104): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#29 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(667): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#30 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(642): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#31 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(608): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#32 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(597): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#33 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#34 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#35 /Users/narusemasahiko/ECsite_laravel/vendor/barryvdh/laravel-debugbar/src/Middleware/InjectDebugbar.php(58): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#36 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#37 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#38 /Users/narusemasahiko/ECsite_laravel/vendor/fideloper/proxy/src/TrustProxies.php(57): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#39 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Fideloper\\Proxy\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(31): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#42 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(31): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#45 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#48 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#49 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#50 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(62): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#51 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(151): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(104): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#54 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#55 /Users/narusemasahiko/ECsite_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#56 /Users/narusemasahiko/ECsite_laravel/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#57 /Users/narusemasahiko/ECsite_laravel/server.php(21): require_once('/Users/narusema...')
+#58 {main}
+"} 
