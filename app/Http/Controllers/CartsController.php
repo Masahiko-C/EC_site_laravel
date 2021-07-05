@@ -26,7 +26,15 @@ class CartsController extends Controller
         }
 
         return redirect()->route('items.index')->with('message', '商品を追加しました。');
+    }
 
+    public function update(Request $request, Cart $cart){
+        $rule = [
+            'amount' => 'required|numeric|integer|min:1',
+        ];
+        $cart->update($request->validate($rule));
+
+        return redirect()->route('cart')->with('message', 'カート内商品の個数を変更しました。');
     }
 
     public function destroy(Cart $cart){

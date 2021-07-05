@@ -27,11 +27,7 @@
             <td><img src="../../uploads/{{ $item->image }}"width="200px" height="200px"></td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->price }}円</td>
-            <td>
-            {!! Form::model($item, ['method' => 'PATCH', 'route' => ['admin.update', $item->item_id]]) !!}
-              @include('Admins.form_update', ['submitButtun' => '更新する'])
-            {!! Form::close() !!}
-            </td>
+            <td>{!! update_form($item, $item->item_id, 'admin.update', 'stock', '商品在庫：') !!}</td>
             <td>
             @if ($item->status == '1')
               {!! Form::open(['method' => 'PATCH', 'route' => ['admin.update', $item->item_id]])!!}
