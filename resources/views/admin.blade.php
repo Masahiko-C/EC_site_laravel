@@ -27,6 +27,7 @@
             <td><img src="../../uploads/{{ $item->image }}"width="200px" height="200px"></td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->price }}円</td>
+<<<<<<< HEAD
             <td>
             {!! Form::model($item, ['method' => 'PATCH', 'route' => ['admin.update', $item->item_id]]) !!}
               <div class="form-group">
@@ -38,6 +39,9 @@
               </div>
             {!! Form::close() !!}
             </td>
+=======
+            <td>{!! update_form($item, $item->item_id, 'admin.update', 'stock', '商品在庫：') !!}</td>
+>>>>>>> eff4af906ca39c48e613c24353ea26845cef4103
             <td>
             @if ($item->status == '1')
               {!! Form::open(['method' => 'PATCH', 'route' => ['admin.update', $item->item_id]])!!}
@@ -55,11 +59,7 @@
               {!! Form::close() !!}
             @endif
             </td>
-            <td>
-            {!! Form::open(['method' => 'DELETE', 'route' => ['admin.destroy', $item->item_id], 'class' => 'd-inline']) !!}
-              {!! Form::submit('削除', ['class' => 'btn btn-danger', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
-            {!! Form::close() !!}
-            </td>
+            <td>{!! delete_form('admin.destroy', $item->item_id) !!}</td>
 
           </tr>
         @endforeach

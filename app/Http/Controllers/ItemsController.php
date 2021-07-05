@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Item;
-use App\User;
 use Illuminate\Http\Request;
 
 class ItemsController extends Controller
@@ -52,7 +51,6 @@ class ItemsController extends Controller
     public function store(Request $request)
     {
         $user = $request->user();
-        
         return view('test', [$user]);
     }
 

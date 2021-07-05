@@ -6,8 +6,6 @@ use App\Item;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ItemRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 class AdminController extends Controller
 {
@@ -80,18 +78,14 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Item $item)
     {
         if(isset($request->stock)){
-            $rule = [
-                'stock' => 'required|numeric|integer|min:0',
-            ];
-            Item::findOrFail($id)->update($request->validate($rule));
+            $rule = ['stock' => 'required|numeric|integer|min:0',];
+            $item->update($request->validate($rule));
         } else {
-            $rule = [
-                'status' =>'required',
-            ];
-            Item::findOrFail($id)->update($request->validate($rule));
+            $rule = ['status' =>'required',];
+            $item->update($request->validate($rule));
         }
         return redirect()->route('admin.index')
                 ->with('message', '商品情報を更新しました。');
@@ -103,16 +97,10 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Item $item)
     {
-        Item::findOrFail($id)->delete();
-
+        $item->delete();
         return redirect()->route('admin.index')
                 ->with('message', '商品を削除しました。');
     }
-
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
 }

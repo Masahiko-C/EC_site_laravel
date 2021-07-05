@@ -51,10 +51,10 @@
               <figcaption>
                 {{ $item->price }}円
                 @if($item['stock'] > 0)
-                  <form action="index_add_cart.php" method="post">
-                    <input type="submit" value="カートに追加" class="btn btn-primary btn-block">
-                    <input type="hidden" name="item_id" value={{ $item->item_id}}
-                  </form>
+                  {!! Form::model($item, ['method' => 'POST', 'route' => ['carts.store', $item->item_id]]) !!}
+                    {!! Form::submit('カートに追加', ['class' =>'btn btn-primary btn-block']) !!}
+                    {!! Form::hidden('item_id', $item->item_id) !!}
+                  {!! Form::close() !!}
                 @else
                   <p class="text-danger">現在売り切れです。</p>
                 @endif
