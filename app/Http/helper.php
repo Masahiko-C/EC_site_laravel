@@ -1,10 +1,24 @@
 <?php
 
+function get_array($array){
+  foreach($array as $value){
+    return $value;
+  }
+}
+
 function get_get($name){
   if(isset($_GET[$name]) === true){
     return $_GET[$name];
   };
   return '';
+}
+
+function sum_carts($carts){
+  $total_price = 0;
+  foreach($carts as $cart){
+    $total_price += get_array($cart->items)->price * $cart['amount'];
+  }
+  return $total_price;
 }
 
 function delete_form($route, $item, $label='削除'){

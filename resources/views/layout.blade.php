@@ -16,6 +16,12 @@
     @if (session('message'))
     <div class="alert alert-success">{{ session('message') }}</div>
     @endif
+    @if(isset($errorMsgs))
+    @foreach($errorMsgs as $errorMsg)
+    <div class="alert alert-danger">{{ $errorMsg }}</div>
+    @endforeach
+    @endif
+
     @include('errors.form_errors')
     @yield('content')
   </div>

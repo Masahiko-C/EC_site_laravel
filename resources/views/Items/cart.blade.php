@@ -18,14 +18,20 @@
       <tbody>
         @foreach($carts as $cart)
         <tr>
-          <td><img src="../../uploads/{{ $cart->image }}" class="item_image"></td>
-          <td>{{ $cart->name }}</td>
-          <td>{{ $cart->price }}円</td>
+          <td><img src="../../uploads/{{ get_array($cart->items)->image }}" class="item_image"></td>
+          <td>{{ get_array($cart->items)->name }}</td>
+          <td>{{ get_array($cart->items)->price }}円</td>
           <td>{!! update_form($cart, $cart->cart_id, 'carts.update', 'amount', '商品個数：') !!}</td>
-          <td>{{ $cart->amount * $cart->price }}円</td>
+          <td>{{ $cart->amount * get_array($cart->items)->price }}円</td>
           <td>{!! delete_form('carts.destroy', $cart->cart_id) !!}</td>
         </tr>
         @endforeach
+      </tbody>
+    </table>
+    <p class="text-right">合計金額: {{ $total_price }}円</p>
+    {!! Form::open(['route' => 'carts.settle']) !!}
+      {!! Form::submit('購入する', ['class' => 'btn btn-block btn-primary']) !!}
+    {!! Form::close() !!}
 
   @else
     <p>カートに商品はありません。</p>

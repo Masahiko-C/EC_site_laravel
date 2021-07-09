@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Item;
+use App\Purchase;
+use App\Purchase_detail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class CartsController extends Controller
 {
     public function show(){
-        $user_id = Auth::id();
-        $carts = Cart::select()->where('user_id', $user_id)->join('items', 'items.item_id', '=', 'carts.item_id')->get();
-        return view('Items.cart', compact('carts'));
+        $userId = Auth::id();
+        $carts = Cart::with('items')->where('user_id', $userId)->get();
+        $total_price = sum_carts($carts);
+        return view('Items.cart', compact('carts', 'total_price'));
     }
 
     public function store(Request $request){
@@ -41,5 +46,52 @@ class CartsController extends Controller
         $cart->delete();
         return redirect()->route('cart')
                 ->with('message', '商品をカートから削除しました。');
+    }
+
+    public function settle(Request $request){
+        $user_id = $request->user()->id;
+        $carts = Cart::where('user_id', $user_id)->join('items', 'items.item_id', '=', 'carts.item_id')->get();
+
+        return DB::transaction(function() use ($user_id, $carts){
+            $errorMsgs = [];
+
+            foreach($carts as $cart){
+                $itemStock = $cart->stock;
+                $stock = $itemStock - $cart->amount;
+                if($stock < 0){
+                    $errorMsgs[] = $cart->name.'の購入に失敗しました。';
+                } else {
+                    Item::where('item_id', $cart->item_id)
+                        ->update(['stock' => $stock]);
+                }
+            }
+            if(Purchase::create(['user_id' => $user_id]) === false){
+                $errorMsgs[] = '購入履歴の追加に失敗しました。';
+            }
+            $lastInsertId = Purchase::create(['user_id' => $user_id])->order_number;
+            foreach($carts as $cart){
+                if(Purchase_detail::create([
+                    'order_number' => $lastInsertId,
+                    'item_id' => $cart->item_id,
+                    'price' => $cart->price,
+                    'quantity' => $cart->amount]) === false){
+                    $errorMsgs[] = $cart->name.'の明細追加に失敗しました。';
+                };
+            }
+
+            foreach($carts as $cart){
+                $cart->delete();
+            }
+
+            if(count($errorMsgs) > 0){
+                DB::rollback();
+                $total_price = sum_carts($carts);
+                return view('Items.cart', compact('carts', 'total_price', 'errorMsgs'));
+            
+            } else {
+                return redirect()->route('home')->with('message', '購入に成功しました。');
+            }
+        });
+
     }
 }

@@ -27,33 +27,19 @@
             <td><img src="../../uploads/{{ $item->image }}"width="200px" height="200px"></td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->price }}円</td>
-<<<<<<< HEAD
-            <td>
-            {!! Form::model($item, ['method' => 'PATCH', 'route' => ['admin.update', $item->item_id]]) !!}
-              <div class="form-group">
-                {!! Form::label('stock', '在庫数:') !!}
-                {!! Form::text('stock', null, ['class' => 'form-controll']) !!}
-              </div>
-              <div class="form-group">
-                {!! Form::submit($submitButtun, ['class' => 'btn btn-primary form-control']) !!}
-              </div>
-            {!! Form::close() !!}
-            </td>
-=======
             <td>{!! update_form($item, $item->item_id, 'admin.update', 'stock', '商品在庫：') !!}</td>
->>>>>>> eff4af906ca39c48e613c24353ea26845cef4103
             <td>
             @if ($item->status == '1')
               {!! Form::open(['method' => 'PATCH', 'route' => ['admin.update', $item->item_id]])!!}
                 <div class="form-group">
-                  {!! Form::hidden('status', '2')!!}
+                  {!! Form::hidden('status', 2)!!}
                   {!! Form::submit('公開 => 非公開', ['class' => 'btn btn-primary form-control']) !!}
                 </div>
               {!! Form::close() !!}
             @else
               {!! Form::open(['method' => 'PATCH', 'route' => ['admin.update', $item->item_id]])!!}
                 <div class="form-group">
-                  {!! Form::hidden('status', '1')!!}
+                  {!! Form::hidden('status', 1)!!}
                   {!! Form::submit('非公開 => 公開', ['class' => 'btn btn-primary form-control']) !!}
                 </div>
               {!! Form::close() !!}

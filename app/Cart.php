@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
-    protected $fillable = ['user_id', 'item_id', 'amount'];
+    protected $fillable = ['cart_id', 'user_id', 'item_id', 'amount'];
     protected $primaryKey = 'cart_id';
 
-    public function item(){
-        return $this->hasMany('App\Item', 'item_id');
+    public function items(){
+        return $this->hasMany(Item::class, 'item_id', 'item_id');
     }
 }
