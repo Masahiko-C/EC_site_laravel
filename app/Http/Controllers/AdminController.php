@@ -78,8 +78,9 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Item $item)
+    public function update($id, Request $request)
     {
+        $item = Item::findorFail($id);
         if(isset($request->stock)){
             $rule = ['stock' => 'required|numeric|integer|min:0',];
             $item->update($request->validate($rule));
