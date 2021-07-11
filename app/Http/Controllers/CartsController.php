@@ -65,10 +65,16 @@ class CartsController extends Controller
                         ->update(['stock' => $stock]);
                 }
             }
-            if(Purchase::create(['user_id' => $user_id]) === false){
+
+            $Purchase = Purchase::create(['user_id' => $user_id]);
+
+            if($Purchase === false){
                 $errorMsgs[] = '購入履歴の追加に失敗しました。';
+                $lastInsertId = 0;
+            } else {
+                $lastInsertId = $Purchase->order_number;
             }
-            $lastInsertId = Purchase::create(['user_id' => $user_id])->order_number;
+
             foreach($carts as $cart){
                 if(Purchase_detail::create([
                     'order_number' => $lastInsertId,
@@ -77,9 +83,6 @@ class CartsController extends Controller
                     'quantity' => $cart->amount]) === false){
                     $errorMsgs[] = $cart->name.'の明細追加に失敗しました。';
                 };
-            }
-
-            foreach($carts as $cart){
                 $cart->delete();
             }
 
@@ -87,7 +90,7 @@ class CartsController extends Controller
                 DB::rollback();
                 $total_price = sum_carts($carts);
                 return view('Items.cart', compact('carts', 'total_price', 'errorMsgs'));
-            
+
             } else {
                 return redirect()->route('home')->with('message', '購入に成功しました。');
             }

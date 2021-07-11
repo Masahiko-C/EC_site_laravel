@@ -32,14 +32,14 @@
             @if ($item->status == '1')
               {!! Form::open(['method' => 'PATCH', 'route' => ['admin.update', $item->item_id]])!!}
                 <div class="form-group">
-                  {!! Form::hidden('status', 2)!!}
+                  {!! Form::hidden('status', '2')!!}
                   {!! Form::submit('公開 => 非公開', ['class' => 'btn btn-primary form-control']) !!}
                 </div>
               {!! Form::close() !!}
             @else
               {!! Form::open(['method' => 'PATCH', 'route' => ['admin.update', $item->item_id]])!!}
                 <div class="form-group">
-                  {!! Form::hidden('status', 1)!!}
+                  {!! Form::hidden('status', '1')!!}
                   {!! Form::submit('非公開 => 公開', ['class' => 'btn btn-primary form-control']) !!}
                 </div>
               {!! Form::close() !!}
