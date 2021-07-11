@@ -21,6 +21,10 @@
           <a class="nav-link" href="{{ route('cart') }}">カート<span class="sr-only">(current)</span></a>
         </li>
 
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ route('purchase') }}">購入履歴<span class="sr-only">(current)</span></a>
+        </li>
+
       @if(Auth::user()->type === 1)
         <li class="nav-item active">
           <a class="nav-link" href="{{ route('admin.index') }}">管理<span class="sr-only">(current)</span></a>

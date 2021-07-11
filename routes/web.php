@@ -23,8 +23,9 @@ Route::get('/cart', 'CartsController@show')->name('cart');
 Route::post('/', 'CartsController@store')->name('carts.store');
 Route::delete('/cart/{cart}', 'CartsController@destroy')->name('carts.destroy');
 Route::patch('/cart/{cart}', 'CartsController@update')->name('carts.update');
-
 Route::post('/cart', 'CartsController@settle')->name('carts.settle');
+
+Route::get('/purchase', 'PurchasesController@index')->name('purchase');
 
 Route::group(['middleware' => ['administrator']], function() {
 Route::resource('admin', 'AdminController');
