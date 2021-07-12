@@ -10,7 +10,7 @@ class PurchasesController extends Controller
 {
     public function index() {
         $userId = Auth::id();
-        $purchases = Purchase::where('user_id', $userId)->get();
+        $purchases = Purchase::with('purchase_details')->where('user_id', $userId)->get();
         return view('Items.purchase', compact('purchases'));
     }
 }

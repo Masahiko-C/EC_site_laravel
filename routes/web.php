@@ -26,6 +26,7 @@ Route::patch('/cart/{cart}', 'CartsController@update')->name('carts.update');
 Route::post('/cart', 'CartsController@settle')->name('carts.settle');
 
 Route::get('/purchase', 'PurchasesController@index')->name('purchase');
+Route::post('/purchse', 'PurchasesController@show')->name('purchases.show');
 
 Route::group(['middleware' => ['administrator']], function() {
 Route::resource('admin', 'AdminController');

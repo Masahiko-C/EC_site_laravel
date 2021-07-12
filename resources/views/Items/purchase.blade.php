@@ -22,9 +22,21 @@
                 <tr>
                     <td>{{ $purchase->order_number }}</td>
                     <td>{{ $purchase->created_at }}</td>
-                    <td>{{ $purchase->amount }}円</td>
+                    @php
+                        $sum = 0;
+                    foreach($purchase->purchase_details as $detail){
+                        $sum +=($detail->price);
+                    }
+                    @endphp
+                    <td>{{ $sum }}円</td>
                     <td>
 
+                    {!! Form::open(['method' => 'post', 'route' => ['purchases.show', $purchase->order_number]]) !!}
+                      <div class="form-group">
+                        {!! Form::submit('明細を表示', ['class' => 'btn btn-primary form-control']) !!}
+                      </div>
+                    {!! Form::close() !!}
+                    
                     <!-- <form method="post" action="purchase_details.php">
                         <input type="submit" value="購入明細表示" class="btn btn-secondary">
                         <input type="hidden" name="order_number" value="{{ $purchase->order_number }}">
