@@ -5,6 +5,14 @@
 @section('content')
 <h1>商品一覧</h1>
 
+    <div class="border">
+      <h3>人気の商品</h3>
+      @foreach($ranks as $rank)
+        <h4>{{ $rank->name }}</h4>
+        <br>
+      @endforeach
+    </div>
+
   <div class="text-right">
   <form method="get">
     <select name="sort" id="sort">
@@ -37,7 +45,7 @@
   </script>
 
   <div class="card-deck">
-      <div class="row">
+
       @foreach($items as $item)
         <div class="col-6 item">
           <div class="card h-100 text-center">

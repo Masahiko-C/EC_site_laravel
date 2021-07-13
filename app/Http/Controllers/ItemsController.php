@@ -29,7 +29,15 @@ class ItemsController extends Controller
                 break;
             }
         }
-        return view('Items.index', compact('items', 'sort'));
+
+        $ranks = Item::where('status', 1)
+        ->join('purchase_details', 'purchase_details.item_id', '=', 'items.item_id')
+        ->groupBy('item_id', 'purchase_details.item_id', 'items.name', 'items.image')
+        ->selectRaw('purchase_details.item_id, sum(quantity) as sum, items.name, items.image')
+        ->orderBy('sum', 'desc')
+        ->get();
+
+        return view('Items.index', compact('items', 'sort', 'ranks'));
     }
 
     /**
