@@ -26,12 +26,13 @@ class CartsController extends Controller
     public function store(Request $request){
         $user_id = $request->user()->id;
         $item_id = $request->item_id;
+        $amount = ($request->quantity);
         $cart = Cart::where(['user_id' => $user_id, 'item_id' => $item_id])->first();
 
         if($cart == null){
-        Cart::create(['user_id' => $user_id, 'item_id' => $item_id, 'amount' => 1]);
+        Cart::create(['user_id' => $user_id, 'item_id' => $item_id, 'amount' => $amount]);
         } else {
-            Cart::where(['user_id' => $user_id, 'item_id' => $item_id])->increment('amount', 1);
+            Cart::where(['user_id' => $user_id, 'item_id' => $item_id])->increment('amount', $amount);
         }
 
         return redirect()->route('items.index')->with('message', '商品を追加しました。');

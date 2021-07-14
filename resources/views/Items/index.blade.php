@@ -60,6 +60,7 @@
                 {{ $item->price }}円
                 @if($item['stock'] > 0)
                   {!! Form::model($item, ['method' => 'POST', 'route' => ['carts.store', $item->item_id]]) !!}
+                    {!! Form::select('quantity', ['1' => '1','2' => '2','3' => '3','4' => '4','5' => '5'], '1', ['class' => 'form-control']) !!}
                     {!! Form::submit('カートに追加', ['class' =>'btn btn-primary btn-block']) !!}
                     {!! Form::hidden('item_id', $item->item_id) !!}
                   {!! Form::close() !!}
