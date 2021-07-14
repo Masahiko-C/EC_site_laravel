@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class PurchasesController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index() {
         $userId = Auth::id();
         $purchases = Purchase::with('purchase_details')->where('user_id', $userId)->get();
