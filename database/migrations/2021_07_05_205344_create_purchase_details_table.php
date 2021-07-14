@@ -24,6 +24,10 @@ class CreatePurchaseDetailsTable extends Migration
                 ->references('order_number')
                 ->on('purchases')
                 ->onDelete('cascade');
+            $table->foreign('item_id')
+                ->references('item_id')
+                ->on('items')
+                ->onDelete('cascade');
 
             $table->primary(['order_number', 'item_id']);
 

@@ -14,4 +14,8 @@ class Purchase_detail extends Model
     public function purchases(){
         return $this->belongsTo(Purchase::class, 'order_number');
     }
+
+    public function items(){
+        return $this->hasMany(Item::class, 'item_id', 'item_id');
+    }
 }

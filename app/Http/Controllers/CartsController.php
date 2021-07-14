@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class CartsController extends Controller
 {
-    public function show(){
+    public function index(){
         $userId = Auth::id();
         $carts = Cart::with('items')->where('user_id', $userId)->get();
         $total_price = sum_carts($carts);
@@ -92,7 +92,8 @@ class CartsController extends Controller
                 return view('Items.cart', compact('carts', 'total_price', 'errorMsgs'));
 
             } else {
-                return redirect()->route('home')->with('message', '購入に成功しました。');
+                $results = Purchase_detail::with('items')->where('order_number', $lastInsertId)->get();
+                return view('Items.finish', compact('results'));
             }
         });
 
