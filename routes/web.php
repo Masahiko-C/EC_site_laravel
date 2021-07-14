@@ -13,7 +13,8 @@
 
 use Doctrine\DBAL\Schema\Index;
 
-
+//認証用routes
+Auth::routes();
 
 Route::get('/', 'ItemsController@index')->name('home');
 
@@ -34,5 +35,4 @@ Route::resource('admin', 'AdminController');
 });
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-//認証用routes
-Auth::routes();
+

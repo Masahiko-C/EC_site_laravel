@@ -58,8 +58,7 @@ class ItemsController extends Controller
      */
     public function store(Request $request)
     {
-        $user = $request->user();
-        return view('test', [$user]);
+        //
     }
 
     /**

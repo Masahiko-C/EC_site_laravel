@@ -12,6 +12,10 @@ use Illuminate\Http\Request;
 
 class CartsController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index(){
         $userId = Auth::id();
         $carts = Cart::with('items')->where('user_id', $userId)->get();
